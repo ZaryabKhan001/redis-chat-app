@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 
 const getUsers = async (): Promise<User[]> => {
   const userKeys: string[] = [];
-  var cursor = "0";
+  let cursor = "0";
 
   do {
     const [nextCursor, keys] = await redis.scan(cursor, {

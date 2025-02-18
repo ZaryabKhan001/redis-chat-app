@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import MessageContainer from "./MessageContainer";
 import { User } from "@/db/dummy";
 import { useSelectedUser } from "@/store/useSelectedUser";
+import Image from "next/image";
 
 interface ChatLayoutProps {
   defaultLayout: number[] | undefined;

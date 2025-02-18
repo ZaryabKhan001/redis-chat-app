@@ -89,7 +89,7 @@ const ChatBottomBar = () => {
     const channel = pusherClient?.subscribe(channelName);
 
     const handleNewMessage = (data: { message: Message }): void => {
-      const a = queryClient.setQueryData(
+      queryClient.setQueryData(
         ["messages", selectedUser?.id],
         (oldMessages: Message[]) => {
           return [...oldMessages, data.message];
@@ -162,7 +162,7 @@ const ChatBottomBar = () => {
                 sendMessage({
                   content: imageUrl,
                   messageType: "images",
-                  receiverId: selectedUser?.id!,
+                  receiverId: selectedUser?.id as string,
                 });
                 setImageUrl("");
               }}
@@ -196,7 +196,9 @@ const ChatBottomBar = () => {
             value={message as string}
             onChange={(e) => {
               setMessage(e.target.value);
-              soundEnabled && playRandomSound()();
+              if (soundEnabled) {
+                playRandomSound()();
+              }
             }}
             onKeyDown={handleKeyDown}
           />
@@ -226,7 +228,7 @@ const ChatBottomBar = () => {
               sendMessage({
                 content: "👍",
                 messageType: "text",
-                receiverId: selectedUser?.id!,
+                receiverId: selectedUser?.id as string,
               });
             }}
           >

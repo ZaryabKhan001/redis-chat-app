@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { messages, USERS } from "@/db/dummy";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { useSelectedUser } from "@/store/useSelectedUser";
@@ -8,6 +7,7 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useQuery } from "@tanstack/react-query";
 import { getMessagesAction } from "@/actions/message.actions";
 import MessageSkeleton from "../skeleton/MessageSkeleton";
+import Image from "next/image";
 
 const MessageList = () => {
   const { selectedUser } = useSelectedUser();

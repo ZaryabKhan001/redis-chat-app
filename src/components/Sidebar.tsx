@@ -15,7 +15,6 @@ import { LogOut } from "lucide-react";
 import useSound from "use-sound";
 import { usePreferencesStore } from "@/store/usePreferencesStore";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useSelectedUser } from "@/store/useSelectedUser";
 
@@ -51,7 +50,9 @@ const Sidebar = ({ isCollapsed, users }: SideBarProps) => {
                 <TooltipTrigger asChild>
                   <div
                     onClick={() => {
-                      soundEnabled && playClickSound();
+                      if (soundEnabled) {
+                        playClickSound();
+                      }
                       setSelectedUser(user);
                     }}
                   >

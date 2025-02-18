@@ -1,4 +1,3 @@
-import { USERS } from "@/db/dummy";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { Info, X } from "lucide-react";
 import { useSelectedUser } from "@/store/useSelectedUser";
